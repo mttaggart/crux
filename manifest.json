@@ -1,0 +1,22 @@
+{
+    "name": "An Evil Extension",
+    "description": "👿👿👿👿",
+    "version": "0.1.0",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": [
+        "debugger",
+        "activeTab",
+        "scripting",
+        "webNavigation",
+        "webRequest"
+    ],
+    "action": {
+        "default_popup": "index.html"
+    },
+    "host_permissions": [
+        "<all_urls>"
+    ]
+}
