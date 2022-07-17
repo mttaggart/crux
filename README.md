@@ -14,7 +14,7 @@ The repository contains 2 directories: `extension` and `server`. Let's begin wit
 
 ### Server
 
-Clone this repository to any server accessible from your victim. Make sure Flask is installed with `pip3 install flask`. Then, simply run `flask run [port]`. Your server is now listening for data.
+Clone this repository to any server accessible from your victim. Make sure Flask and Rich are installed with `pip3 install flask rich`. Then, simply run `flask run [port]`. Your server is now listening for data.
 
 ### Extension
 
