@@ -27,7 +27,7 @@ def get_cookie():
     if request.json:
         cookie = request.json["cookie"]
         # Special styling for any session cookies
-        if "sess" in cookie["name"].lower() or cookie["session"]:
+        if "sess" in cookie["name"].lower() or "token" in cookie["name"].lower() or cookie["session"]:
             style = "[white on yellow]"
             style_close = "[/white on yellow]"
         else:
